@@ -23,10 +23,10 @@ function editar() {
     var tabela = document.getElementById("cadastro");
     var linhas = tabela.rows;
   
-    for (var i=1;i<linhas.length;i++) {//percorrer cada celula da tabela(nome, cpf, idade) e seleciona se clicar
+    for (var i=1;i<linhas.length;i++) {//percorrer cada linha da tabela(nome, cpf, idade) e seleciona se clicar
       linhas[i].onclick = function() {
-        document.getElementById("nomeInput").value = this.cells[0].textContent;
-        document.getElementById("cpfInput").value = this.cells[1].textContent;
+        document.getElementById("nomeInput").value = this.cells[0].textContent; //onclick é um evento, logo é necessario o uso do this para acessar as celulas
+        document.getElementById("cpfInput").value = this.cells[1].textContent; //this aponta para <tr> que é as linhas da tabela cadastro
         document.getElementById("idadeInput").value = this.cells[2].textContent;
         tabela.deleteRow(this.rowIndex); //remove a linha selecionada para edição
       };
